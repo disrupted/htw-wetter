@@ -1,21 +1,17 @@
 """Platform for sensor integration."""
 import logging
 from datetime import timedelta
-import voluptuous as vol
-from homeassistant.helpers.entity import Entity
+
 import homeassistant.helpers.config_validation as cv
-from homeassistant.components.sensor import PLATFORM_SCHEMA
-from homeassistant.const import (
-    ATTR_ATTRIBUTION,
-    ATTR_FRIENDLY_NAME,
-    CONF_NAME,
-    DEVICE_CLASS_HUMIDITY,
-    DEVICE_CLASS_PRESSURE,
-    DEVICE_CLASS_TEMPERATURE,
-    TEMP_CELSIUS,
-)
-from homeassistant.util import Throttle
 import requests
+import voluptuous as vol
+from homeassistant.components.sensor import PLATFORM_SCHEMA
+from homeassistant.const import (ATTR_ATTRIBUTION, ATTR_FRIENDLY_NAME,
+                                 CONF_NAME, DEVICE_CLASS_HUMIDITY,
+                                 DEVICE_CLASS_PRESSURE,
+                                 DEVICE_CLASS_TEMPERATURE, TEMP_CELSIUS)
+from homeassistant.helpers.entity import Entity
+from homeassistant.util import Throttle
 
 DEFAULT_NAME = "HTW Wetter"
 ATTRIBUTION = "Weather Data provided by HTW Berlin"
